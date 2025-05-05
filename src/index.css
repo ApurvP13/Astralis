@@ -1,0 +1,115 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap");
+@import "tailwindcss";
+
+@theme inline {
+  /* Configure your theme variables here */
+  --font-display: "Space Grotesk", sans-serif;
+  --color-primary-500: oklch(0.84 0.18 117.33);
+  --spacing: 0.25rem;
+  --animate-aurora: aurora 60s linear infinite;
+
+  --card-gradient-hover: from-zinc-900 via-zinc-600 to-zinc-200 border-2
+    border-red-700;
+
+  --animate-scroll: scroll var(--animation-duration, 40s)
+    var(--animation-direction, forwards) linear infinite;
+
+  --animate-toast: fade 1s linear;
+
+  @keyframes fade {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+  @keyframes scroll {
+    to {
+      transform: translate(calc(-50% - 0.5rem));
+    }
+  }
+
+  @keyframes aurora {
+    from {
+      background-position: 50% 50%, 50% 50%;
+    }
+    to {
+      background-position: 350% 50%, 350% 50%;
+    }
+  }
+}
+
+/* 
+   We need to add this in your CSS or Tailwind config to make the shine effect work.
+   This can go in your global CSS file or a component's CSS.
+*/
+@layer utilities {
+  @keyframes shine {
+    0% {
+      transform: rotate(25deg) translate(-100%, -100%);
+    }
+    100% {
+      transform: rotate(25deg) translate(200%, 200%);
+    }
+  }
+
+  .shine {
+    background: linear-gradient(
+      130deg,
+      rgba(255, 255, 255, 0) 40%,
+      rgba(255, 255, 255, 0.5) 50%,
+      rgba(255, 255, 255, 0) 60%
+    );
+    animation: shine 1s forwards;
+  }
+
+  .group:hover .shine {
+    animation: shine 1s forwards;
+  }
+}
+
+@layer components {
+  .text-gradient {
+    @apply bg-clip-text text-transparent text-center bg-gradient-to-br font-extrabold from-zinc-800 via-zinc-500 to-white;
+  }
+
+  .mars-grad {
+    @apply bg-gradient-to-tl from-red-600 to-orange-400 bg-clip-text text-transparent;
+  }
+
+  .mars-bg-grad {
+    @apply bg-gradient-to-tl from-red-300 to-orange-300;
+  }
+
+  .sun-grad {
+    @apply bg-gradient-to-r from-orange-500 to-yellow-500 bg-clip-text text-transparent;
+  }
+
+  .sun-bg-grad {
+    @apply bg-gradient-to-r from-orange-500 via-yellow-500 to-yellow-200;
+  }
+
+  .saturn-grad {
+    @apply bg-gradient-to-r from-slate-300 via-blue-200 to-slate-400 bg-clip-text text-transparent;
+  }
+
+  .saturn-bg-grad {
+    @apply bg-gradient-to-r from-amber-800 via-yellow-600 to-slate-400;
+  }
+
+  .gaiabh1-grad {
+    @apply bg-gradient-to-r from-slate-950 via-slate-900 to-indigo-600 bg-clip-text text-transparent;
+  }
+
+  .gaiabh1-bg-grad {
+    @apply bg-gradient-to-r from-slate-900 via-slate-800 to-indigo-600;
+  }
+}
+
+body {
+  background-color: black;
+  background-image: url("./images/star-bg.png");
+  /* background-size: cover; */
+}
