@@ -5,7 +5,7 @@ const priceTag = () => {
   return (
     <>
       <a
-        href="/"
+        href="#price"
         className="relative inline-block text-md md:text-xl text-gradient font-display tracking-wide after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-full after:origin-left after:scale-x-0 after:bg-white after:transition-transform after:duration-300 hover:after:scale-x-100"
       >
         Pricing
@@ -17,7 +17,7 @@ const priceTag = () => {
 const Mail = () => {
   return (
     <a
-      href="/"
+      href="#contact"
       className="relative inline-block text-md md:text-xl text-gradient font-display tracking-wide after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-full after:origin-left after:scale-x-0 after:bg-white after:transition-transform after:duration-300 hover:after:scale-x-100"
     >
       Contact Us
